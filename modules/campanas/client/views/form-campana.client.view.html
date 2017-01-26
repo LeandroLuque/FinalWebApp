@@ -1,0 +1,24 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.campana._id ? 'Editar Campaña' : 'Nueva Campaña'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.campanaForm" class="form-horizontal" ng-submit="vm.save(vm.form.campanaForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Nombre</label>
+          <input name="name" type="text" ng-model="vm.campana.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.campanaForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">El nombre de la campaña es requerido</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.campana._id ? 'Actualizar' : 'Crear'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
