@@ -9,6 +9,11 @@
 
   function CampanasListController(CampanasService, uiGmapApi) {
     var vm = this;
+
+    uiGmapApi.then(function(maps) {
+     	new maps.Map($('#map')[0], {center: { lat: 0, lng: 0 }});
+    });
+
     vm.campanas = CampanasService.query();
   }
 }());
