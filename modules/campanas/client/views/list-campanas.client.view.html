@@ -19,7 +19,11 @@
   <div class="alert alert-warning text-center" ng-if="vm.campanas.$resolved && !vm.campanas.length">
     No Campanas yet, why don't you <a ui-sref="campanas.create">create one</a>?
   </div>-->
-  <div class="cotainer">
-    <ui-gmap-google-map></ui-gmap-google-map>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="map" style="width:500px;height:500px"></div>
+      </div>
+    </div>
   </div>
 </section>
