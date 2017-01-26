@@ -5,7 +5,7 @@
     .module('campanas', ['uiGmapgoogle-maps','nemLogging'])
     .config(function(uiGmapGoogleMapApiProvider){
       uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyCzFKiqQ70gB775hQBeN6oBH9AJMgL1ABQ'
+        key: 'AIzaSyCw9LL7k3OLBDW6Ryn28D3qtDwp0yjReCA'
         //libraries: 'weather,geometry,visualization'
       });
     })

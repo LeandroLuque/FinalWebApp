@@ -9,7 +9,6 @@
 
   function CampanasListController(CampanasService, uiGmapApi) {
     var vm = this;
-
     vm.campanas = CampanasService.query();
   }
 }());

@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1>Campanas</h1>
   </div>
-  <div class="list-group">
+  <!--<div class="list-group">
     <a ng-repeat="campana in vm.campanas"
        ui-sref="campanas.view({ campanaId: campana._id })"
        class="list-group-item">
@@ -18,5 +18,8 @@
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.campanas.$resolved && !vm.campanas.length">
     No Campanas yet, why don't you <a ui-sref="campanas.create">create one</a>?
+  </div>-->
+  <div class="cotainer">
+    <ui-gmap-google-map></ui-gmap-google-map>
   </div>
 </section>
