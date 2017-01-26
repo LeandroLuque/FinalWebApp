@@ -2,13 +2,8 @@
   'use strict';
 
   angular
-    .module('campanas', ['uiGmapgoogle-maps','nemLogging'])
+    .module('campanas')
     .config(routeConfig)
-    .config(function(uiGmapGoogleMapApiProvider){
-      uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyCw9LL7k3OLBDW6Ryn28D3qtDwp0yjReCA',
-      });
-    })
 
   routeConfig.$inject = ['$stateProvider'];
 
