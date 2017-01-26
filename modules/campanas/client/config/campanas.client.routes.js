@@ -3,12 +3,12 @@
 
   angular
     .module('campanas', ['uiGmapgoogle-maps','nemLogging'])
+    .config(routeConfig)
     .config(function(uiGmapGoogleMapApiProvider){
       uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyCw9LL7k3OLBDW6Ryn28D3qtDwp0yjReCA',
       });
     })
-    .config(routeConfig)
 
   routeConfig.$inject = ['$stateProvider'];
 
