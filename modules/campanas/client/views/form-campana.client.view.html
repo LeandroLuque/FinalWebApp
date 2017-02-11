@@ -2,9 +2,10 @@
   <div class="page-header">
     <h1>{{vm.campana._id ? 'Editar Campaña' : 'Nueva Campaña'}}</h1>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-6">
     <form name="vm.form.campanaForm" class="form-horizontal" ng-submit="vm.save(vm.form.campanaForm.$valid)" novalidate>
       <fieldset>
+        
         <div class="form-group" show-errors>
           <label class="control-label" for="name">Nombre</label>
           <input name="name" type="text" ng-model="vm.campana.name" id="name" class="form-control" placeholder="Name" required>
@@ -12,13 +13,44 @@
             <p class="help-block error-text" ng-message="required">El nombre de la campaña es requerido</p>
           </div>
         </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="responsable">Responsable</label>
+          <input name="responsable" type="text" ng-model="vm.campana.responsable" id="responsable" class="form-control" placeholder="Responsable" required>
+          <div ng-messages="vm.form.campanaForm.responsable.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">El nombre del responsable de la campaña es requerido</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="motivo">Motivo</label>
+          <textarea name="motivo" type="text" ng-model="vm.campana.motivo" id="motivo" class="form-control" placeholder="Motivo de la Campaña" required></textarea>
+          <div ng-messages="vm.form.campanaForm.motivo.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">El motivo de la campaña es requerido</p>
+          </div>
+        </div>   
+
+        <div class="form-group">
+          <label class="control-label" for="motivo">Latitud</label>
+          <input name="latitud" type="number" ng-model="vm.campana.latitud" id="latitud" class="form-control" disabled>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="motivo">Longitud</label>
+          <input name="longitud" type="number" ng-model="vm.campana.longitud" id="longitud" class="form-control" disabled>
+        </div>
+
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.campana._id ? 'Actualizar' : 'Crear'}}</button>
         </div>
         <div ng-show="vm.error" class="text-danger">
           <strong ng-bind="vm.error"></strong>
         </div>
+      
       </fieldset>
     </form>
+  </div>
+  <div class="col-md-6">
+    <div id="map" style="height:450px;"></div>
   </div>
 </section>

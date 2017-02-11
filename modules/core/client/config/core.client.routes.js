@@ -6,6 +6,8 @@
     .config(function(uiGmapGoogleMapApiProvider){
       uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyCw9LL7k3OLBDW6Ryn28D3qtDwp0yjReCA',
+        //key: 'AIzaSyCzFKiqQ70gB775hQBeN6oBH9AJMgL1ABQ',
+        libraries: 'weather,geometry,visualization'
       });
     })
     .config(routeConfig);

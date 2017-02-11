@@ -9,18 +9,23 @@
 
   function CampanasListController(CampanasService, uiGmapApi) {
     var vm = this;
+    var map, heatlayer;
 
-    uiGmapApi.then(function(maps) {
-     	new maps.Map($('#map')[0], {center: { lat: 0, lng: 0 }});
-    });
+    // uiGmapApi.then(function(maps) {
+    //  	new maps.Map($('#map')[0], {center: { lat: 0, lng: 0 }});
+    // });
 
     vm.campanas = CampanasService.query();
 
     function initMap () {
-      var opt = { scrollwheel: true, zoom: 8, center: { lat: -43.263305, lng: -65.3830899 } };
+      var opt = { scrollwheel: true, 
+                  zoom: 8, 
+                  center: { lat: -43.263305, lng: -65.3830899 },
+                };
       if ($('#map')[0]) {
         uiGmapApi.then(function(maps) {
-          new maps.Map($('#map')[0], opt);
+          map = new maps.Map($('#map')[0], opt);
+          map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
         });
       }
     }
