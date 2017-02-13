@@ -10,11 +10,31 @@ var mongoose = require('mongoose'),
  * Pieza Schema
  */
 var PiezaSchema = new Schema({
-  name: {
+  descripcion: {
     type: String,
     default: '',
-    required: 'Please fill Pieza name',
+    required: 'DescripcionE requerida',
     trim: true
+  },
+  material: {
+    type: String,
+    default: '',
+    required: 'Material requerido',
+    trim: true
+  },
+  codigo: {
+    type: String,
+    default: '',
+    required: 'Código requerido',
+    trim: true
+  },
+  latitud: {
+    type: String,
+    required: 'Latitud requerida',
+  },
+  longitud: {
+    type: String,
+    required: 'Longitud requerida',
   },
   created: {
     type: Date,

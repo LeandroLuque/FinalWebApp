@@ -13,7 +13,7 @@
         <span ng-if="pieza.user" ng-bind="pieza.user.displayName"></span>
         <span ng-if="!pieza.user">Deleted User</span>
       </small>
-      <h4 class="list-group-item-heading" ng-bind="pieza.name"></h4>
+      <h4 class="list-group-item-heading" ng-bind="pieza.codigo"></h4>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.piezas.$resolved && !vm.piezas.length">

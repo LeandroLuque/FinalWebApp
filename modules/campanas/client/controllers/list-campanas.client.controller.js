@@ -11,12 +11,8 @@
     var vm = this;
     var map, heatlayer;
 
-    // uiGmapApi.then(function(maps) {
-    //  	new maps.Map($('#map')[0], {center: { lat: 0, lng: 0 }});
-    // });
-
     vm.campanas = CampanasService.query();
-
+    
     function initMap () {
       var opt = { scrollwheel: true, 
                   zoom: 8, 
@@ -29,6 +25,18 @@
         });
       }
     }
+
+    $("#buscador").click(function(){
+      var nombre = $("#nombre").val();
+      var responsable = $("#responsable").val();
+      var zona = $("#zona").val();
+
+      for (var i = vm.campanas.length - 1; i >= 0; i++) {
+        console.log(vm.campanas[i]);
+      }
+
+      console.log(nombre, responsable, zona);
+    })
 
     initMap();
   }

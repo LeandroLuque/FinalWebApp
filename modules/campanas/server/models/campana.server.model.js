@@ -28,6 +28,14 @@ var CampanaSchema = new Schema({
     required: 'Completar este campo',
     trim: true
   },
+  latitud: {
+    type: Number, 
+    required: 'Completar este campo'
+  },
+  longitud: {
+    type: Number, 
+    required: 'Completar este campo'
+  },
   created: {
     type: Date,
     default: Date.now
@@ -35,14 +43,6 @@ var CampanaSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
-  },
-  latitud: {
-    type: Number, 
-    //required: 'Completar este campo'
-  },
-  longitud: {
-    type: Number, 
-    //required: 'Completar este campo'
   }
 });
 

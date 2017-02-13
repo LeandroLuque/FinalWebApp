@@ -1,17 +1,61 @@
 <section>
   <div class="page-header">
-    <h1>{{vm.pieza._id ? 'Edit Pieza' : 'New Pieza'}}</h1>
+    <h1>{{vm.pieza._id ? 'Editar Pieza' : 'Nueva Pieza'}}</h1>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-6 col-md-offset-3">
     <form name="vm.form.piezaForm" class="form-horizontal" ng-submit="vm.save(vm.form.piezaForm.$valid)" novalidate>
       <fieldset>
+
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.pieza.name" id="name" class="form-control" placeholder="Name" required>
-          <div ng-messages="vm.form.piezaForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Pieza name is required.</p>
+          <label class="control-label" for="codigo">Código</label>
+          <input name="codigo" type="text" ng-model="vm.pieza.codigo" id="codigo" class="form-control" placeholder="Código" required>
+          <div ng-messages="vm.form.piezaForm.codigo.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Código de la pieza es requerido.</p>
           </div>
         </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Descripción</label>
+          <input name="descripcion" type="text" ng-model="vm.pieza.descripcion" id="descripcion" class="form-control" placeholder="Descripción" required>
+          <div ng-messages="vm.form.piezaForm.descripcion.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Descripción es requerido.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="campana">Campaña</label>
+          <input name="campana" type="text" ng-model="vm.pieza.campana" id="campana" class="form-control" placeholder="Campaña" required uib-typeahead="state.name for state in states | filter:$viewValue | limitTo:8">
+          <div ng-messages="vm.form.piezaForm.campana.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Campaña es requerido.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="material">Material</label>
+          <input name="material" type="text" ng-model="vm.pieza.material" id="material" class="form-control" placeholder="Material" required>
+          <div ng-messages="vm.form.piezaForm.material.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Material de la pieza es requerido.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="latitud">Latitud</label>
+          <input name="latitud" type="text" ng-model="vm.pieza.latitud" id="latitud" class="form-control" placeholder="Latitud" required>
+          <div ng-messages="vm.form.piezaForm.latitud.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Latitud es requerido.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="latitud">Longitud</label>
+          <input name="longitud" type="text" ng-model="vm.pieza.longitud" id="longitud" class="form-control" placeholder="Longitud" required>
+          <div ng-messages="vm.form.piezaForm.longitud.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Longitud es requerido.</p>
+          </div>
+        </div>
+
+
+
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.pieza._id ? 'Update' : 'Create'}}</button>
         </div>

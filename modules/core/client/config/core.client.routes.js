@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('core.routes', ['uiGmapgoogle-maps','nemLogging'])
+    .module('core.routes', ['uiGmapgoogle-maps','nemLogging', 'ui.bootstrap'])
     .config(function(uiGmapGoogleMapApiProvider){
       uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyCw9LL7k3OLBDW6Ryn28D3qtDwp0yjReCA',
