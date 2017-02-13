@@ -6,9 +6,9 @@
     .module('campanas')
     .controller('CampanasController', CampanasController);
 
-  CampanasController.$inject = ['$scope', '$state', '$window', 'Authentication', 'campanaResolve','uiGmapGoogleMapApi'];
+  CampanasController.$inject = ['$scope', '$state', '$window', 'Authentication', 'campanaResolve','uiGmapGoogleMapApi', 'PersonalsService'];
 
-  function CampanasController ($scope, $state, $window, Authentication, campana, uiGmapApi) {
+  function CampanasController ($scope, $state, $window, Authentication, campana, uiGmapApi, PersonalsService) {
     var vm = this;
     var map;
 
@@ -20,6 +20,10 @@
     vm.save = save;
 
     var count_markers = 0;
+
+    $scope.personas = PersonalsService.query();
+
+    console.log($scope.personas);
 
     // Remove existing Campana
     function remove() {

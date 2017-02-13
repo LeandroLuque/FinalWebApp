@@ -10,10 +10,22 @@ var mongoose = require('mongoose'),
  * Personal Schema
  */
 var PersonalSchema = new Schema({
-  name: {
+  nya: {
     type: String,
     default: '',
-    required: 'Please fill Personal name',
+    required: 'Nombre es requerido',
+    trim: true
+  },
+  dni: {
+    type: Number,
+    default: '',
+    required: 'DNI es requerido',
+    trim: true
+  },
+  rol: {
+    type: String,
+    default: '',
+    required: 'Rol es requerido',
     trim: true
   },
   created: {

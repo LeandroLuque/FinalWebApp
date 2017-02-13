@@ -1,6 +1,6 @@
 <section>
   <div class="page-header">
-    <h1>Personals</h1>
+    <h1>Personal</h1>
   </div>
   <div class="list-group">
     <a ng-repeat="personal in vm.personals"
@@ -13,7 +13,7 @@
         <span ng-if="personal.user" ng-bind="personal.user.displayName"></span>
         <span ng-if="!personal.user">Deleted User</span>
       </small>
-      <h4 class="list-group-item-heading" ng-bind="personal.name"></h4>
+      <h4 class="list-group-item-heading" ng-bind="personal.nya"></h4>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.personals.$resolved && !vm.personals.length">
