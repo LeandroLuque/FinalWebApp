@@ -9,10 +9,11 @@
 
   function CampanasListController(CampanasService, PiezasService,uiGmapApi) {
     var vm = this;
-    var map, heatmapData=[];
+    var map, heatmapData=[], markers=[];
 
     vm.campanas = CampanasService.query();
-    
+
+
     function initMap () {
       var opt = { scrollwheel: true, 
                   zoom: 8, 
@@ -43,14 +44,18 @@
             var marker = new google.maps.Marker({
               position: myLatLng,
               map: map,
-              title: campanas[i].name
-            });  
+              title: campanas[i].name,
+              responsable: campanas[i].responsable
+            }); 
+
+            markers.push(marker);
+
           }
 
           heatMap(map);
+
       });
     }
-
 
     function heatMap(map){
       var heatmap = new google.maps.visualization.HeatmapLayer({
@@ -63,9 +68,28 @@
     $("#buscador").click(function(){
       var nombre = $("#nombre").val();
       var responsable = $("#responsable").val();
-      var zona = $("#zona").val();
 
-      console.log(nombre, responsable, zona);
+      for (var i = markers.length - 1; i >= 0; i--) {
+
+        markers[i].setVisible(true);
+
+        if ((responsable != "") && (markers[i].visible != false)){
+          if (markers[i].responsable != responsable) 
+            markers[i].setVisible(false);
+          else
+            markers[i].setVisible(true);
+        }
+
+        if ((nombre != "") &&  (markers[i].visible != false)) {
+          if (markers[i].title != nombre){
+            console.log("false");
+            markers[i].setVisible(false);
+          }else
+            markers[i].setVisible(true);
+        }
+          
+      }
+
     })
 
     initMap();
