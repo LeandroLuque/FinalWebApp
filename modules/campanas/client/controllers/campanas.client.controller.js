@@ -53,6 +53,7 @@
       }
 
       function successCallback(res) {
+        console.log("Carga de campaña ")
         $state.go('campanas.view', {
           campanaId: res._id
         });

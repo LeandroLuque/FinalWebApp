@@ -14,7 +14,9 @@ var CampanaSchema = new Schema({
     type: String,
     default: '',
     required: 'Completar este campo',
-    trim: true
+    trim: true,
+    unique: true,
+    index: true
   },
   responsable: {
     type: String,

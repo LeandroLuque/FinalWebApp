@@ -24,7 +24,7 @@
 
     // Add the dropdown create item
     menuService.addSubMenuItem('topbar', 'campanas', {
-      title: 'Create Campana',
+      title: 'Crear Campaña',
       state: 'campanas.create',
       roles: ['user']
     });

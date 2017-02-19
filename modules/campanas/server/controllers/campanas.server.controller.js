@@ -55,6 +55,7 @@ exports.update = function(req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
+      console.log("Borrar: Update de campana");
       res.jsonp(campana);
     }
   });
