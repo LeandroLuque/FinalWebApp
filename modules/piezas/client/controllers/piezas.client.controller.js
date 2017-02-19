@@ -10,6 +10,7 @@
 
   function PiezasController ($scope, $state, $window, Authentication, pieza, CampanasService) {
     var vm = this;
+    var id_campana;
 
     vm.authentication = Authentication;
     vm.pieza = pieza;
@@ -20,6 +21,10 @@
 
 
     $scope.states = CampanasService.query();
+
+    $scope.onSelect = function($item, $model, $label){
+      id_campana = $item._id;
+    }
 
     // Remove existing Pieza
     function remove() {
@@ -72,9 +77,18 @@
         vm.pieza.latitud = dms2dec(vm.pieza.latitud);
         vm.pieza.longitud = dms2dec(vm.pieza.longitud);
         vm.pieza.$save(successCallback, errorCallback);
+
+        // Se agrega la pieza a la campana elegida
+        var campana = CampanasService.get({
+          campanaId: id_campana
+        }, function(){
+            campana.piezas.push(vm.pieza._id);
+            campana.$update();
+        });
       }
 
       function successCallback(res) {
+        
         $state.go('piezas.view', {
           piezaId: res._id
         });

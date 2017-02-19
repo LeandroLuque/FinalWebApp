@@ -24,7 +24,7 @@
 
         <div class="form-group" show-errors>
           <label class="control-label" for="campana">Campaña</label>
-          <input name="campana" type="text" ng-model="vm.pieza.campana" id="campana" class="form-control" placeholder="Campaña" required uib-typeahead="state.name for state in states | filter:$viewValue | limitTo:8">
+          <input name="campana" type="text" ng-model="vm.pieza.campana" id="campana" class="form-control" placeholder="Campaña" required uib-typeahead="state.name for state in states | filter:$viewValue | limitTo:8" typeahead-on-select="onSelect($item, $model, $label)">
           <div ng-messages="vm.form.piezaForm.campana.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Campaña es requerido.</p>
           </div>
