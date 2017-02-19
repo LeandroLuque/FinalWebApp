@@ -35,16 +35,16 @@
                 <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
                 <div class="form-group">
                     <label for="namecampana">Nombre de Campaña</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre de Campaña" ng-model="formData.namecampana">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre de Campaña" ng-model="formData.namecampana" uib-typeahead="c.name for c in vm.campanas | filter:$viewValue | limitTo:8">
                 </div>
                 <div class="form-group">
                     <label for="Responsable">Responsable</label>
-                    <input type="text" class="form-control" id="responsable" placeholder="Responsable" ng-model="formData.responsable">
+                    <input type="text" class="form-control" id="responsable" placeholder="Responsable" ng-model="formData.responsable" uib-typeahead="c.responsable for c in vm.campanas | filter:$viewValue | limitTo:8">
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label for="zona">Zona</label>
                     <input type="text" class="form-control" id="zona" placeholder="Zona" ng-model="vm.buscador.zona">
-                </div>
+                </div>-->
                 <!-- Submit button. Note that its tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
                 <button type="submit" class="btn btn-primary btn-block" id="buscador">Buscar</button>
             </form>

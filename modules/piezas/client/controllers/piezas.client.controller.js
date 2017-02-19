@@ -82,7 +82,7 @@
         var campana = CampanasService.get({
           campanaId: id_campana
         }, function(){
-            campana.piezas.push(vm.pieza._id);
+            campana.piezas.push(vm.pieza);
             campana.$update();
         });
       }
