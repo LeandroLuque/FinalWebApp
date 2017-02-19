@@ -36,12 +36,7 @@ var CampanaSchema = new Schema({
     type: Number, 
     required: 'Completar este campo'
   },
-  piezas:[
-    {
-      type: Schema.ObjectId,
-      ref: 'Pieza'
-    }
-  ],
+  piezas:[],
   created: {
     type: Date,
     default: Date.now
