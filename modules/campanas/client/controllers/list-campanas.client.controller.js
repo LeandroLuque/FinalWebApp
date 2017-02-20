@@ -5,9 +5,9 @@
     .module('campanas')
     .controller('CampanasListController', CampanasListController);
 
-  CampanasListController.$inject = ['CampanasService', 'PiezasService', 'uiGmapGoogleMapApi'];
+  CampanasListController.$inject = ['$state', 'CampanasService', 'PiezasService', 'uiGmapGoogleMapApi'];
 
-  function CampanasListController(CampanasService, PiezasService,uiGmapApi) {
+  function CampanasListController($state, CampanasService, PiezasService,uiGmapApi) {
     var vm = this;
     var map, heatmapData=[], markers=[];
 
@@ -24,6 +24,7 @@
           map = new maps.Map($('#map')[0], opt);
           map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
           cargarCampanas(map);
+
         });
       }
     }
@@ -41,11 +42,13 @@
             }
 
             var myLatLng = {lat: campanas[i].latitud, lng: campanas[i].longitud};
-            var marker = new google.maps.Marker({
+            var marker = null
+            marker = new google.maps.Marker({
               position: myLatLng,
               map: map,
               title: campanas[i].name,
-              responsable: campanas[i].responsable
+              responsable: campanas[i].responsable,
+              _id : campanas[i]._id
             }); 
 
             markers.push(marker);
@@ -53,6 +56,14 @@
           }
 
           heatMap(map);
+
+          for (var m in markers){
+            markers[m].addListener('click',function(){
+              $state.go('campanas.view', {
+                campanaId: this._id
+              });
+            });
+          }
 
       });
     }
