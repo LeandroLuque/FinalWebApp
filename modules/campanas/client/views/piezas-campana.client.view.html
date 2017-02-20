@@ -10,13 +10,16 @@
 	    <uib-accordion-heading>
 	        <a ng-bind="pieza.codigo">I can have markup, too!</a> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
 	     </uib-accordion-heading>
-	     	<p><strong>Descripción:</strong> <span ng-bind="pieza.descripcion | filter:upperCase"></span></p>
-	     	<p><strong>Material:</strong> <span ng-bind="pieza.material | filter:upperCase"></span></p>
+	     	<p><strong>Descripción:</strong> <span ng-bind="pieza.descripcion | uppercase"></span></p>
+	     	<p><strong>Material:</strong> <span ng-bind="pieza.material | uppercase"></span></p>
 	     	<p><strong>Latitud:</strong> <span ng-bind="pieza.latitud"></span></p>
 	     	<p><strong>Longitud:</strong> <span ng-bind="pieza.longitud"></span></p>
 	    </div>
 	    </div>
     </uib-accordion>
-  	
+  </div>
+
+  <div class="col-md-12">
+  	<button id="btn-pdf" class="btn btn-default"> Descargar PDF</button>
   </div>
 </section>

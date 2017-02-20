@@ -31,10 +31,8 @@ module.exports = {
         'public/lib/angular-ui-calendar/src/calendar.js',
         'public/lib/custom/bootstrap-datetimepicker.min.js',
         'public/lib/custom/locale-all.js',
-        //'public/lib/underscore/underscore.js',
-        //'public/lib/angular-simple-logger/dist/angular-simple-logger',
-        //'//maps.googleapis.com/maps/api/js',
-        //'public/lib/angular-google-maps/dist/angular-google-maps.js'
+        'public/lib/pdfmake/build/pdfmake.js',
+        'public/lib/pdfmake/build/vfs_fonts.js',
 
         // endbower
       ],
