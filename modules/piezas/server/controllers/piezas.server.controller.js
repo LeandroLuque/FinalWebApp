@@ -15,7 +15,7 @@ var path = require('path'),
 exports.create = function(req, res) {
   var pieza = new Pieza(req.body);
   pieza.user = req.user;
-
+  console.log("Save pieza controller server");
   pieza.save(function(err) {
     if (err) {
       return res.status(400).send({
@@ -23,6 +23,7 @@ exports.create = function(req, res) {
       });
     } else {
       res.jsonp(pieza);
+      
     }
   });
 };
