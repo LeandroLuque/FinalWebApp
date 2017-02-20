@@ -16,7 +16,7 @@
 
         <div class="form-group" show-errors>
           <label class="control-label" for="name">Descripción</label>
-          <input name="descripcion" type="text" ng-model="vm.pieza.descripcion" id="descripcion" class="form-control" placeholder="Descripción" required>
+          <textarea name="descripcion" ng-model="vm.pieza.descripcion" id="descripcion" class="form-control" placeholder="Descripción" required></textarea>
           <div ng-messages="vm.form.piezaForm.descripcion.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Descripción es requerido.</p>
           </div>
