@@ -5,6 +5,10 @@
   <div class="pull-right"
        ng-show="vm.campana.isCurrentUserOwner">
     <a class="btn btn-primary"
+       ui-sref="campanas.piezas({ campanaId: vm.campana._id })">
+      <i class="glyphicon glyphicon-th-list"></i>
+    </a>
+    <a class="btn btn-primary"
        ui-sref="campanas.edit({ campanaId: vm.campana._id })">
       <i class="glyphicon glyphicon-edit"></i>
     </a>

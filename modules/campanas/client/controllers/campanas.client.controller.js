@@ -23,8 +23,6 @@
 
     $scope.personas = PersonalsService.query();
 
-    console.log($scope.personas);
-
     // Remove existing Campana
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {

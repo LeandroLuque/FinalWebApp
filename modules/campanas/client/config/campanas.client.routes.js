@@ -49,6 +49,19 @@
           pageTitle: 'Editar Campaña {{ campanaResolve.name }}'
         }
       })
+      .state('campanas.piezas', {
+        url: '/:campanaId/piezas',
+        templateUrl: 'modules/campanas/client/views/piezas-campana.client.view.html',
+        controller: 'CampanasPiezasController',
+        controllerAs: 'vm',
+        resolve: {
+          campanaResolve: getCampana
+        },
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Piezas Campaña {{ campanaResolve.name }}'
+        }
+      })
       .state('campanas.view', {
         url: '/:campanaId',
         templateUrl: 'modules/campanas/client/views/view-campana.client.view.html',
