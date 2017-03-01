@@ -37,12 +37,9 @@
                       ]);
           }
 
-
-          console.log(table);
           return table;
         }
 
-        console.log("hola mundo");
         var dd = {
           content: [
             {
