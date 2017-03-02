@@ -18,13 +18,13 @@
 
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'piezas', {
-      title: 'List Piezas',
+      title: 'Listado Piezas',
       state: 'piezas.list'
     });
 
     // Add the dropdown create item
     menuService.addSubMenuItem('topbar', 'piezas', {
-      title: 'Create Pieza',
+      title: 'Alta Pieza',
       state: 'piezas.create',
       roles: ['user']
     });

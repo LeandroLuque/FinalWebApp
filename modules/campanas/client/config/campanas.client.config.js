@@ -10,7 +10,7 @@
   function menuConfig(menuService) {
     // Set top bar menu items
     menuService.addMenuItem('topbar', {
-      title: 'Campanas',
+      title: 'Campañas',
       state: 'campanas',
       type: 'dropdown',
       roles: ['*']
@@ -18,7 +18,7 @@
 
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'campanas', {
-      title: 'List Campanas',
+      title: 'Listado Campañas',
       state: 'campanas.list'
     });
 

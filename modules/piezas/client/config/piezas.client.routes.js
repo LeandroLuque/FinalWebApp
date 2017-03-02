@@ -49,6 +49,19 @@
           pageTitle: 'Edit Pieza {{ piezaResolve.name }}'
         }
       })
+      .state('piezas.estado', {
+        url: '/:piezaId/estados',
+        templateUrl: 'modules/piezas/client/views/estados-pieza.client.view.html',
+        controller: 'PiezasEstadosController',
+        controllerAs: 'vm',
+        resolve: {
+          piezaResolve: getPieza
+        },
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Estados Pieza {{ piezaResolve._id }}'
+        }
+      })
       .state('piezas.view', {
         url: '/:piezaId',
         templateUrl: 'modules/piezas/client/views/view-pieza.client.view.html',

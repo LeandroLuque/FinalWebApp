@@ -5,6 +5,10 @@
   <div class="pull-right"
        ng-show="vm.pieza.isCurrentUserOwner">
     <a class="btn btn-primary"
+       ui-sref="piezas.estado({ piezaId: vm.pieza._id })">
+      <i class="glyphicon glyphicon-th-list"></i>
+    </a>
+    <a class="btn btn-primary"
        ui-sref="piezas.edit({ piezaId: vm.pieza._id })">
       <i class="glyphicon glyphicon-edit"></i>
     </a>
