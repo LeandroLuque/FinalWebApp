@@ -6,6 +6,30 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
+
+/**
+ * Estado Schema
+ */
+
+var EstadoSchema = new Schema({
+  timestamp: {
+    type: Date,
+    default: Date.now
+  },
+  responsable: {
+    type: String,
+  },
+  observaciones: {
+    type: String,
+  },
+  tipo: {
+    type: String,
+  },
+  imagen: {
+    type: String,
+  }
+})
+
 /**
  * Pieza Schema
  */
@@ -13,7 +37,7 @@ var PiezaSchema = new Schema({
   descripcion: {
     type: String,
     default: '',
-    required: 'DescripcionE requerida',
+    required: 'Descripcion requerida',
     trim: true
   },
   material: {
@@ -36,6 +60,7 @@ var PiezaSchema = new Schema({
     type: String,
     required: 'Longitud requerida',
   },
+  estados: [EstadoSchema],
   created: {
     type: Date,
     default: Date.now

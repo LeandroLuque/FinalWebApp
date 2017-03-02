@@ -33,7 +33,10 @@ module.exports = {
         'public/lib/custom/locale-all.js',
         'public/lib/pdfmake/build/pdfmake.js',
         'public/lib/pdfmake/build/vfs_fonts.js',
-
+        '//cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.js"',
+        'https://cdn.firebase.com/js/client/2.2.4/firebase.js',
+        '//cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js',
+        
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
