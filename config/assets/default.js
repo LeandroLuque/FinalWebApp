@@ -7,7 +7,8 @@ module.exports = {
     lib: {
       css: [
         // bower:css
-        'public/lib/bootstrap/dist/css/bootstrap1.css',
+        'public/lib/bootswatch-dist/css/bootstrap.min.css',
+        //'public/lib/bootstrap/dist/css/bootstrap.css',
         //'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/ng-img-crop/compile/unminified/ng-img-crop.css',
         // endbower
