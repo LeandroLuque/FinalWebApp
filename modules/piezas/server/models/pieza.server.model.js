@@ -27,6 +27,7 @@ var EstadoSchema = new Schema({
   },
   imagen: {
     type: String,
+    default: 'modules/piezas/client/img/noimagefound.jpg'
   }
 })
 

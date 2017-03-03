@@ -4,8 +4,6 @@
     <h1>Estodo Pieza {{vm.pieza.codigo}}</h1>
   </div>
 
-  <div ng-app='img2fire'>
-  <div ng-controller='base64Ctrl'>
     <div class="container-fluid">
       <p class="text-info" align="center">Upload Images to Firebase</p>
       <hr />
@@ -20,11 +18,21 @@
           </span>
       </form>
       <hr />
-      <div ng-repeat="img in imgs | toArray | orderBy: '-date'" class="col-xs-12 col-sm-6 col-md-3">
-        <img ng-src="{{img.base64}}">
-        <a class="btn btn-danger btn-block" ng-click="deleteimg(img.$id)">Delete</a>
+      <div ng-repeat="estado in vm.pieza.estados">
+        <div class="row">
+          <div class="col-lg-6">
+            <a class="thumbnail">
+              <img clss="img-responsive" src="{{estado.imagen}}">
+            </a>
+          </div>
+          <div class="col-md-6">
+            <p> <strong>Fecha:</strong> {{estado.timestamp | date:"MM/dd/yyyy '-' h:mma"}} </p>
+            <p> <strong>Responsable:</strong> {{estado.responsable}} </p>
+            <p> <strong>Tipo:</strong> {{estado.tipo}} </p>
+            <p> <strong>Observaciones:</strong> {{estado.observaciones}} </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
+    
 </section>
