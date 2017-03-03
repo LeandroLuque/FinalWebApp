@@ -7,10 +7,9 @@ module.exports = {
     lib: {
       css: [
         // bower:css
-        'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        'public/lib/bootstrap/dist/css/bootstrap1.css',
+        //'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/ng-img-crop/compile/unminified/ng-img-crop.css',
-        'public/lib/fullcalendar/dist/fullcalendar.css'
         // endbower
       ],
       js: [
@@ -27,7 +26,6 @@ module.exports = {
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/moment/min/moment.min.js',
-        'public/lib/fullcalendar/dist/fullcalendar.min.js',
         'public/lib/angular-ui-calendar/src/calendar.js',
         'public/lib/custom/bootstrap-datetimepicker.min.js',
         'public/lib/custom/locale-all.js',
