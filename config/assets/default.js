@@ -32,6 +32,7 @@ module.exports = {
         'public/lib/custom/locale-all.js',
         'public/lib/pdfmake/build/pdfmake.js',
         'public/lib/pdfmake/build/vfs_fonts.js',
+	'public/lib/angular-strap/dist/angular-strap.js',
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

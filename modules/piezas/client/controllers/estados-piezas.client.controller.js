@@ -6,6 +6,7 @@
     .module('piezas')
     .controller('PiezasEstadosController', PiezasEstadosController);
 
+
   PiezasEstadosController.$inject = ['$scope', '$state', '$window', 'Authentication', 'piezaResolve'];
 
   function PiezasEstadosController ($scope, $state, $window, Authentication, pieza) {
@@ -17,6 +18,7 @@
     var img_resul = null;
 
     var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    
     $scope.uploadFile = function() {
       var sFileName = $("#nameImg").val();
       if (sFileName.length > 0) {
@@ -34,15 +36,19 @@
               fileReader.onload = function(fileLoadedEvent) {
 
                 img_resul = fileLoadedEvent.target.result;
+           
 
-                vm.pieza.estados.push({
+                  vm.pieza.estados.push({
                   responsable: user.firstName + " " + user.lastName,
-                  observaciones: "probando",
-                  tipo: "transito",
+                  observaciones: $("#observaciones").val() ,
+                  tipo: $("#tipo").val(),
                   imagen: img_resul,
+                  timestamp: new Date(),
                 })
 
                 vm.pieza.$update(successCallback, errorCallback);
+                 $("#observaciones").val("");
+                  $("#tipo").val("");
 
               };
 
@@ -69,8 +75,25 @@
         vm.error = res.data.message;
       }
 
+      
+
       return true;
-    }    
+    }   
+
+    $scope.quitarEstado = function(elemento){
+       
+        vm.pieza.estados.splice(elemento,1); //elimino un elemento en la ubicacion pasada por parametro
+        vm.pieza.$update(successCallback, errorCallback);
+        
+      }
+       function successCallback(res) {
+        console.log("Nuevo estado generado");
+      } 
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
 
   }
+
+
 }());

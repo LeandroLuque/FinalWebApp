@@ -33,6 +33,8 @@
   "dependencies": {
     "acl": "~0.4.9",
     "angular-google-maps": "^2.4.1",
+    "angular-modal-service": "^0.11.0",
+    "angular-strap": "file:public/lib/angular-strap",
     "angular-ui-bootstrap": "^2.5.0",
     "async": "~2.0.1",
     "body-parser": "~1.15.0",
