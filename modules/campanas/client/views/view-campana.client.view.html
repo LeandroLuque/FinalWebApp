@@ -4,15 +4,15 @@
   </div>
   <div class="pull-right"
        ng-show="vm.campana.isCurrentUserOwner">
-    <a class="btn btn-primary"
+    <a class="btn btn-default"
        ui-sref="campanas.piezas({ campanaId: vm.campana._id })">
       <i class="glyphicon glyphicon-th-list"></i>
     </a>
-    <a class="btn btn-primary"
+    <a class="btn btn-default"
        ui-sref="campanas.edit({ campanaId: vm.campana._id })">
       <i class="glyphicon glyphicon-edit"></i>
     </a>
-    <a class="btn btn-primary" ng-click="vm.remove()">
+    <a class="btn btn-default" ng-click="vm.remove()">
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>

@@ -5,26 +5,7 @@
   </div>
 
     <div class="container-fluid">
-      <p class="text-info" align="center">Upload Images to Firebase</p>
-      <hr />
 
-      <form ng-submit="uploadFile()">
-
-        <label>Observaciones:</label>
-        <input type="text" name="observaciones" id="observaciones" required>
-        <br>
-        <label>Tipo:</label>
-        <input type="text" name="tipo" id="tipo" required>
-
-        <input type="file" name="file" class="inputimg" id="nameImg" accept="image/*" required>
-        <br>
-        
-       
-                <button  type="submit" class="btn btn-block">Agregar Estado
-                </button>
-        
-      </form>
-      <hr />
       <div ng-repeat="estado in vm.pieza.estados">
         <div class="row">
           <div class="col-lg-6">
@@ -38,14 +19,71 @@
             <p> <strong>Tipo:</strong> {{estado.tipo}} </p>
             <p> <strong>Observaciones:</strong> {{estado.observaciones}} </p>
 
-           
-              <button class="btn btn-primary" ng-click="quitarEstado($index)"> Borrar</a> </button>
-              <hr />
-            
-            
+            <button class="btn btn-primary" ng-click="quitarEstado($index)"> Borrar</a> </button>   
+          </div>
+        </div>
+      </div>
+
+      <br>
+      
+      <div class="row">
+        <div class="col-lg-12 col-sm-12 text-center">
+          <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal">Nuevo Estado</button>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Nuevo Estado</h4>
+            </div>
+            <form ng-submit="uploadFile()">
+              <div class="modal-body">
+
+                  <div class="row">
+                    <div class="form-group">
+                      <label for="responsable">Responsable</label>
+                      <input type="text" id="responsable" ng-model="vm.pieza.camapana" class="form-control" placeholder="Responsable" required uib-typeahead="persona.nya for persona in personal | filter:$viewValue | limitTo:8">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group">
+                      <label for="tipo">Tipo</label>
+                      <select class="form-control" id="tipo" required>
+                        <option>En campo</option>
+                        <option>En tránsito</option>
+                        <option>En laboratorio</option>
+                        <option>En colección</option>
+                      </select>
+                    </div>
+                  </div>
+              
+                  <div class="row">
+                    <div class="form-group">
+                      <label for="observaciones">Observaciones</label>
+                      <textarea class="form-control" type="text" placeholder="Observaciones" id="observaciones" required></textarea>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="form-group">
+                      <label for="nameImg">Imágen</label>
+                      <input class="form-control" type="file" name="file" id="nameImg" accept="image/*" required>
+                    </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Confirmar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    
+
+
 </section>

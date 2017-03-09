@@ -7,15 +7,19 @@
     .controller('PiezasEstadosController', PiezasEstadosController);
 
 
-  PiezasEstadosController.$inject = ['$scope', '$state', '$window', 'Authentication', 'piezaResolve'];
+  PiezasEstadosController.$inject = ['$scope', '$state', '$window', 'Authentication', 'piezaResolve', 'PersonalsService'];
 
-  function PiezasEstadosController ($scope, $state, $window, Authentication, pieza) {
+  function PiezasEstadosController ($scope, $state, $window, Authentication, pieza, PersonalsService) {
     var vm = this;
 
     vm.authentication = Authentication;
     var user = vm.authentication.user;
     vm.pieza = pieza;
     var img_resul = null;
+
+    $scope.personal = PersonalsService.query();
+
+    console.log($scope.personal);
 
     var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
     
@@ -39,7 +43,7 @@
            
 
                   vm.pieza.estados.push({
-                  responsable: user.firstName + " " + user.lastName,
+                  responsable: $("#responsable").val(),
                   observaciones: $("#observaciones").val() ,
                   tipo: $("#tipo").val(),
                   imagen: img_resul,
@@ -93,7 +97,12 @@
         vm.error = res.data.message;
       }
 
-  }
+    
+    /*vm.open = function(){
+      $("#myModal").modal('show');
+    }*/
+
+}
 
 
 }());
