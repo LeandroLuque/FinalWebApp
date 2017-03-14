@@ -25,13 +25,14 @@
 
     // Remove existing Campana
     function remove() {
-      if ($window.confirm('Are you sure you want to delete?')) {
+      if ($window.confirm('¿Esta seguro de eliminar la campaña?')) {
         vm.campana.$remove($state.go('campanas.list'));
       }
     }
 
     // Save Campana
     function save(isValid) {
+      console.log(vm.campana);
 
       if (count_markers == 0 ){
         alert("Debe marcar una ubicación en el mapa");
@@ -51,7 +52,7 @@
       }
 
       function successCallback(res) {
-        console.log("Carga de campaña ")
+        
         $state.go('campanas.view', {
           campanaId: res._id
         });
@@ -74,6 +75,10 @@
       function actualizar_location(location){
         $("#latitud").val(location.lat());
         $("#longitud").val(location.lng());
+        $('#latitud').removeAttr("required");
+        $('#longitud').removeAttr("required");
+        vm.campana.longitud = location.lng();
+        vm.campana.latitud = location.lat();
       }
 
       function placeMarker(location, map) {
