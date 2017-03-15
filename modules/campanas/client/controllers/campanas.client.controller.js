@@ -6,9 +6,9 @@
     .module('campanas')
     .controller('CampanasController', CampanasController);
 
-  CampanasController.$inject = ['$scope', '$state', '$window', 'Authentication', 'campanaResolve','uiGmapGoogleMapApi', 'PersonalsService'];
+  CampanasController.$inject = ['$scope', '$state', '$window', 'Authentication', 'campanaResolve','uiGmapGoogleMapApi', 'PersonalsService','PiezasService'];
 
-  function CampanasController ($scope, $state, $window, Authentication, campana, uiGmapApi, PersonalsService) {
+  function CampanasController ($scope, $state, $window, Authentication, campana, uiGmapApi, PersonalsService, PiezasService) {
     var vm = this;
     var map;
 
@@ -25,7 +25,14 @@
 
     // Remove existing Campana
     function remove() {
-      if ($window.confirm('Are you sure you want to delete?')) {
+      if ($window.confirm('¿Está seguro que quiere eliminar esta campaña?')) {
+        vm.campana.piezas.forEach(function(element) {
+          var pieza = PiezasService.get({
+            piezaId: element._id
+          }, function(){
+              pieza.$remove();
+          });
+        }, this);
         vm.campana.$remove($state.go('campanas.list'));
       }
     }
