@@ -61,6 +61,10 @@ var PiezaSchema = new Schema({
     type: String,
     required: 'Longitud requerida',
   },
+  campana: {
+    type: String,
+    required: 'Campaña requerida',
+  },
   estados: [EstadoSchema],
   created: {
     type: Date,
