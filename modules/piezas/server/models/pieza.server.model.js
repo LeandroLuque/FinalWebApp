@@ -51,7 +51,9 @@ var PiezaSchema = new Schema({
     type: String,
     default: '',
     required: 'Código requerido',
-    trim: true
+    trim: true,
+    unique: 'El codigo ya existe, pruebe otro nombre',
+    index: true,
   },
   latitud: {
     type: String,
