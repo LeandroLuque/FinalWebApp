@@ -16,7 +16,7 @@
 
         <div class="form-group" show-errors>
           <label class="control-label" for="responsable">Responsable</label>
-          <input name="responsable" type="text" ng-model="vm.campana.responsable" id="responsable" class="form-control" placeholder="Nombre del/los responsable/s" required uib-typeahead="p.nya for p in personas | filter:$viewValue | limitTo:8">
+          <input name="responsable" type="text" ng-model="vm.campana.responsable" id="responsable" class="form-control" placeholder="Nombre del/los responsable/s" required uib-typeahead="p.nya for p in personas | filter:$viewValue | limitTo:8" typeahead-editable="false">
           <div ng-messages="vm.form.campanaForm.responsable.$error" role="alert">
             <p class="help-block error-text" ng-message="required">El nombre del responsable de la campaña es requerido</p>
           </div>
