@@ -15,7 +15,7 @@ var CampanaSchema = new Schema({
     default: '',
     required: 'Completar este campo',
     trim: true,
-    unique: true,
+    unique: 'La campaña ya existe, pruebe otro nombre',
     index: true
   },
   responsable: {
