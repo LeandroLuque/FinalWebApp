@@ -79,7 +79,7 @@
         return false;
       }
 
-      // TODO: move create/update logic to service
+      
       if (vm.pieza._id) {
         vm.pieza.$update(successCallback, errorCallback);
       } else {

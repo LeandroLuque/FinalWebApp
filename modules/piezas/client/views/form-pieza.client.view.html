@@ -8,7 +8,8 @@
 
         <div class="form-group" show-errors>
           <label class="control-label" for="codigo">Código</label>
-          <input name="codigo" type="text" ng-model="vm.pieza.codigo" id="codigo" class="form-control" placeholder="Código" required>
+          <input name="codigo" type="text" ng-model="vm.pieza.codigo" id="codigo" class="form-control" placeholder="Código" 
+          required ng-disabled="vm.pieza._id">
           <div ng-messages="vm.form.piezaForm.codigo.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Código de la pieza es requerido.</p>
           </div>
@@ -24,7 +25,8 @@
 
         <div class="form-group" show-errors>
           <label class="control-label" for="campana">Campaña</label>
-          <input name="campana" type="text" ng-model="vm.pieza.campana" id="campana" class="form-control" placeholder="Campaña" required uib-typeahead="state.name for state in states | filter:$viewValue | limitTo:8" typeahead-on-select="onSelect($item, $model, $label)" typeahead-editable="false">
+          <input name="campana" type="text" ng-model="vm.pieza.campana" id="campana" class="form-control" placeholder="Campaña" required uib-typeahead="state.name for state in states | filter:$viewValue | limitTo:8" 
+          typeahead-on-select="onSelect($item, $model, $label)" typeahead-editable="false">
           <div ng-messages="vm.form.piezaForm.campana.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Campaña es requerido.</p>
           </div>
@@ -40,7 +42,8 @@
 
         <div class="form-group" show-errors>
           <label class="control-label" for="latitud">Latitud</label>
-          <input name="latitud" type="text" ng-model="vm.pieza.latitud" id="latitud" class="form-control" placeholder="Latitud" required pattern="\d{1,3}°\d{1,2}'\d{1,2}''[N,S]">
+          <input name="latitud" type="text" ng-model="vm.pieza.latitud" id="latitud" class="form-control" placeholder="Latitud"
+          required pattern="\d{1,3}°\d{1,2}'\d{1,2}''[N,S]" ng-disabled="vm.pieza._id">
           <div ng-messages="vm.form.piezaForm.latitud.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Latitud es requerido.</p>
           </div>
@@ -48,7 +51,8 @@
 
         <div class="form-group" show-errors>
           <label class="control-label" for="latitud">Longitud</label>
-          <input name="longitud" type="text" ng-model="vm.pieza.longitud" id="longitud" class="form-control" placeholder="Longitud" pattern="\d{1,3}°\d{1,2}'\d{1,2}''[N,S]" required>
+          <input name="longitud" type="text" ng-model="vm.pieza.longitud" id="longitud" class="form-control" placeholder="Longitud" 
+          pattern="\d{1,3}°\d{1,2}'\d{1,2}''[W,E]" required ng-disabled="vm.pieza._id">
           <div ng-messages="vm.form.piezaForm.longitud.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Longitud es requerido.</p>
           </div>
