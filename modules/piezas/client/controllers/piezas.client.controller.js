@@ -28,7 +28,8 @@
 
     // Remove existing Pieza
     function remove() {
-      if ($window.confirm('Are you sure you want to delete?')) {
+
+      if ($window.confirm('Nombre de la campaña')) {
         var campana = CampanasService.get({
           campanaId: vm.pieza.idcampana
         }, function(){
@@ -37,6 +38,7 @@
             });
             campana.$update();   
         });
+
       }
       vm.pieza.$remove($state.go('piezas.list'));
     }
