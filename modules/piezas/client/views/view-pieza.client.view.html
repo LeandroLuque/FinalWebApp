@@ -18,9 +18,9 @@
   </div>
   <small>
     <em class="text-muted">
-      Posted on
+      Creado el:
       <span ng-bind="vm.pieza.created | date:'mediumDate'"></span>
-      by
+      por:
       <span ng-if="vm.pieza.user"
             ng-bind="vm.pieza.user.displayName"></span>
       <span ng-if="!vm.pieza.user">Deleted User</span>

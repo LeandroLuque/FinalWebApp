@@ -28,7 +28,7 @@
 
     // Remove existing Pieza
     function remove() {
-      if ($window.confirm('Are you sure you want to delete?')) {
+      if ($window.confirm('¿Desea eliminar la pieza?')) {
         vm.pieza.$remove($state.go('piezas.list'));
       }
     }

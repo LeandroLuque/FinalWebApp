@@ -7,9 +7,9 @@
        ui-sref="piezas.view({ piezaId: pieza._id })"
        class="list-group-item">
       <small class="list-group-item-text">
-        Posted on
+        Creado el:
         <span ng-bind="pieza.created | date:'mediumDate'"></span>
-        by
+        por
         <span ng-if="pieza.user" ng-bind="pieza.user.displayName"></span>
         <span ng-if="!pieza.user">Deleted User</span>
       </small>
@@ -17,6 +17,6 @@
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.piezas.$resolved && !vm.piezas.length">
-    No Piezas yet, why don't you <a ui-sref="piezas.create">create one</a>?
+    No hay piezas! <a ui-sref="piezas.create">¿Crear una?</a>?
   </div>
 </section>
