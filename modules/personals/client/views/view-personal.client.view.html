@@ -14,12 +14,12 @@
   </div>
   <small>
     <em class="text-muted">
-      Posted on
+      Creado
       <span ng-bind="vm.personal.created | date:'mediumDate'"></span>
-      by
+      por
       <span ng-if="vm.personal.user"
             ng-bind="vm.personal.user.displayName"></span>
-      <span ng-if="!vm.personal.user">Deleted User</span>
+      <span ng-if="!vm.personal.user">Eliminar usuario</span>
     </em>
   </small>
   <p class="lead" ng-bind="vm.personal.content"></p>

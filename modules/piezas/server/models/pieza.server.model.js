@@ -52,7 +52,7 @@ var PiezaSchema = new Schema({
     default: '',
     required: 'Código requerido',
     trim: true,
-    unique: 'El codigo ya existe, pruebe otro nombre',
+    unique: true,
     index: true,
   },
   latitud: {

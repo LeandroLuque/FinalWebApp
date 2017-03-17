@@ -20,7 +20,7 @@
 
     // Remove existing Personal
     function remove() {
-      if ($window.confirm('Are you sure you want to delete?')) {
+      if ($window.confirm('¿Desea eliminar esta persona?')) {
         vm.personal.$remove($state.go('personals.list'));
       }
     }

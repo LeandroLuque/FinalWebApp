@@ -29,7 +29,7 @@
     // Remove existing Pieza
     function remove() {
 
-      if ($window.confirm('Nombre de la campaña')) {
+      if ($window.confirm('¿Desea eliminar la pieza?')) {
         var campana = CampanasService.get({
           campanaId: vm.pieza.idcampana
         }, function(){
@@ -60,24 +60,30 @@
         vm.pieza.idcampana = id_campana;
         vm.pieza.$save(successCallback, errorCallback);
 
-        // Se agrega la pieza a la campana elegida
+        
+
+       
+      }
+
+      function successCallback(res) {
+         // Se agrega la pieza a la campana elegida
         var campana = CampanasService.get({
           campanaId: id_campana
         }, function(){
             campana.piezas.push(vm.pieza);
             campana.$update();
+                $state.go('piezas.view', {
+                piezaId: res._id
+            });
         });
-      }
-
-      function successCallback(res) {
         
-        $state.go('piezas.view', {
-          piezaId: res._id
-        });
+       
       }
 
       function errorCallback(res) {
         vm.error = res.data.message;
+        vm.error= "El código ya existe!";
+     
       }
     }
   }
