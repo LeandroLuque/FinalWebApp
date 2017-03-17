@@ -108,10 +108,19 @@
         uiGmapApi.then(function(maps) {
           map = new maps.Map($('#map')[0], opt);
           map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
-          map.addListener('click', function(e){
-            if (count_markers == 0)
-              placeMarker(e.latLng, map);
-          });
+          if (vm.campana._id){
+            var myLatLng = {lat: vm.campana.latitud, lng: vm.campana.longitud};
+            var marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,
+            }); 
+            count_markers++;
+          }else{
+            map.addListener('click', function(e){
+              if (count_markers == 0)
+                placeMarker(e.latLng, map);
+            });
+          }
         });
       }
     }

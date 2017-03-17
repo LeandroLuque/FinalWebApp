@@ -8,7 +8,8 @@
         
         <div class="form-group" show-errors>
           <label class="control-label" for="name">Nombre</label>
-          <input name="name" type="text" ng-model="vm.campana.name" id="name" class="form-control" placeholder="Nombre de la campaña" required>
+          <input name="name" type="text" ng-model="vm.campana.name" id="name" class="form-control" placeholder="Nombre de la campaña" 
+          required ng-disabled="vm.campana._id">
           <div ng-messages="vm.form.campanaForm.name.$error" role="alert">
             <p class="help-block error-text" ng-message="required">El nombre de la campaña es requerido</p>
           </div>
@@ -16,7 +17,8 @@
 
         <div class="form-group" show-errors>
           <label class="control-label" for="responsable">Responsable</label>
-          <input name="responsable" type="text" ng-model="vm.campana.responsable" id="responsable" class="form-control" placeholder="Nombre del/los responsable/s" required uib-typeahead="p.nya for p in personas | filter:$viewValue | limitTo:8" typeahead-editable="false">
+          <input name="responsable" type="text" ng-model="vm.campana.responsable" id="responsable" class="form-control" placeholder="Nombre del/los responsable/s" required 
+          uib-typeahead="p.nya for p in personas | filter:$viewValue | limitTo:8" typeahead-editable="false">
           <div ng-messages="vm.form.campanaForm.responsable.$error" role="alert">
             <p class="help-block error-text" ng-message="required">El nombre del responsable de la campaña es requerido</p>
           </div>
@@ -33,7 +35,8 @@
         
         <div class="form-group" show-errors>
           <label class="control-label" for="latitud">Latitud</label>
-          <input name="latitud" type="number" ng-model="vm.campana.latitud" id="latitud" class="form-control" required placeholder="Ingrese la latitud">
+          <input name="latitud" type="number" ng-model="vm.campana.latitud" id="latitud" class="form-control" required
+           placeholder="Ingrese la latitud" ng-disabled="vm.campana._id">
           <div ng-messages="vm.form.campanaForm.latitud.$error" role="alert">
             <p class="help-block error-text" ng-message="required">La latitud es requerida, haga clic en el mapa</p>
           </div>
@@ -42,7 +45,8 @@
         
         <div class="form-group" show-errors>
           <label class="control-label" for="longitud">Longitud</label>
-          <input name="longitud" type="number" ng-model="vm.campana.longitud" id="longitud" class="form-control" required placeholder="Ingrese la longitud">
+          <input name="longitud" type="number" ng-model="vm.campana.longitud" id="longitud" class="form-control" required
+           placeholder="Ingrese la longitud" ng-disabled="vm.campana._id">
           <div ng-messages="vm.form.campanaForm.longitud.$error" role="alert">
             <p class="help-block error-text" ng-message="required">La longitud es requerida, haga clic en el mapa</p>
           </div>
@@ -59,6 +63,6 @@
     </form>
   </div>
   <div class="col-md-6">
-    <div id="map" style="height:450px;"></div>
+    <div id="map" style="height:456px;"></div>
   </div>
 </section>
