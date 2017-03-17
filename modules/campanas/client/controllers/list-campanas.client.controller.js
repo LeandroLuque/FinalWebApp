@@ -13,6 +13,34 @@
 
     vm.campanas = CampanasService.query();
 
+    /**
+      Función para convertir los grados sexagesimales
+      en una representación decimal
+    */
+    function dms2dec(sexagesimal){
+      // http://www.sunearthtools.com/dp/tools/conversion.php
+
+      var x = ["°", "'", "''"];
+      var temp = sexagesimal;
+      var data = [];
+      var hemisferio, decimal;
+
+      for (var i in x){
+        temp = temp.replace(/ /g, '');
+        data.push(Number(temp.split(x[i])[0]));
+        temp = temp.split(x[i])[1];
+      }
+      
+      hemisferio = sexagesimal.replace(/ /g, '').split("''")[1];
+
+      decimal = data[0] + ((data[2] / 60 + data[1]) / 60);
+
+      if (hemisferio == "S" || hemisferio == "W"){
+        decimal = decimal * -1;
+      }
+
+      return decimal;
+    }
 
     function initMap () {
       var opt = { scrollwheel: true, 
@@ -36,8 +64,10 @@
           for (var i = campanas.length - 1; i >= 0; i--) {
 
             for (var j = campanas[i].piezas.length - 1; j >= 0; j--) {
-              var lat = Number(campanas[i].piezas[j].latitud);
-              var lng = Number(campanas[i].piezas[j].longitud);
+              var lat = campanas[i].piezas[j].latitud;
+              var lng = campanas[i].piezas[j].longitud;
+              lat = dms2dec(lat);
+              lng = dms2dec(lng);
               heatmapData.push(new google.maps.LatLng(lat, lng));
             }
 
@@ -54,6 +84,7 @@
             markers.push(marker);
 
           }
+          console.log(heatmapData);
 
           heatMap(map);
 

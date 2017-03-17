@@ -38,39 +38,8 @@
             });
             campana.$update();   
         });
-
+        vm.pieza.$remove($state.go('piezas.list'));
       }
-      vm.pieza.$remove($state.go('piezas.list'));
-    }
-
-    /**
-
-      Función para convertir los grados sexagesimales
-      en una representación decimal
-    */
-    function dms2dec(sexagesimal){
-      // http://www.sunearthtools.com/dp/tools/conversion.php
-
-      var x = ["°", "'", "\""];
-      var temp = sexagesimal;
-      var data = [];
-      var hemisferio, decimal;
-
-      for (var i in x){
-        temp = temp.replace(/ /g, '');
-        data.push(Number(temp.split(x[i])[0]));
-        temp = temp.split(x[i])[1];
-      }
-
-      hemisferio = temp;
-
-      decimal = data[0] + ((data[2] / 60 + data[1]) / 60);
-
-      if (hemisferio == "S" || hemisferio == "W"){
-        decimal = decimal * -1;
-      }
-
-      return decimal;
     }
 
     // Save Pieza
@@ -85,8 +54,8 @@
       if (vm.pieza._id) {
         vm.pieza.$update(successCallback, errorCallback);
       } else {
-        vm.pieza.latitud = dms2dec(vm.pieza.latitud);
-        vm.pieza.longitud = dms2dec(vm.pieza.longitud);
+        //vm.pieza.latitud = dms2dec(vm.pieza.latitud);
+        //vm.pieza.longitud = dms2dec(vm.pieza.longitud);
         //vm.pieza.namecampana = vm.pieza.campana;
         vm.pieza.idcampana = id_campana;
         vm.pieza.$save(successCallback, errorCallback);
