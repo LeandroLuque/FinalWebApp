@@ -6,9 +6,9 @@
     .module('campanas')
     .controller('CampanasController', CampanasController);
 
-  CampanasController.$inject = ['$scope', '$state', '$window', 'Authentication', 'campanaResolve','uiGmapGoogleMapApi', 'PersonalsService'];
+  CampanasController.$inject = ['$scope', '$state', '$window', 'Authentication', 'campanaResolve','uiGmapGoogleMapApi', 'PersonalsService','PiezasService'];
 
-  function CampanasController ($scope, $state, $window, Authentication, campana, uiGmapApi, PersonalsService) {
+  function CampanasController ($scope, $state, $window, Authentication, campana, uiGmapApi, PersonalsService, PiezasService) {
     var vm = this;
     var map;
 
@@ -25,7 +25,14 @@
 
     // Remove existing Campana
     function remove() {
-      if ($window.confirm('¿Esta seguro de eliminar la campaña?')) {
+      if ($window.confirm('¿Está seguro que quiere eliminar esta campaña?')) {
+        vm.campana.piezas.forEach(function(element) {
+          var pieza = PiezasService.get({
+            piezaId: element._id
+          }, function(){
+              pieza.$remove();
+          });
+        }, this);
         vm.campana.$remove($state.go('campanas.list'));
       }
     }
@@ -101,10 +108,19 @@
         uiGmapApi.then(function(maps) {
           map = new maps.Map($('#map')[0], opt);
           map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
-          map.addListener('click', function(e){
-            if (count_markers == 0)
-              placeMarker(e.latLng, map);
-          });
+          if (vm.campana._id){
+            var myLatLng = {lat: vm.campana.latitud, lng: vm.campana.longitud};
+            var marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,
+            }); 
+            count_markers++;
+          }else{
+            map.addListener('click', function(e){
+              if (count_markers == 0)
+                placeMarker(e.latLng, map);
+            });
+          }
         });
       }
     }

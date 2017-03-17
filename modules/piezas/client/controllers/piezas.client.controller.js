@@ -28,8 +28,18 @@
 
     // Remove existing Pieza
     function remove() {
-      if ($window.confirm('¿Desea eliminar la pieza?')) {
-        vm.pieza.$remove($state.go('piezas.list'));
+
+      if ($window.confirm('Nombre de la campaña')) {
+        var campana = CampanasService.get({
+          campanaId: vm.pieza.campana
+        }, function(){
+            campana.piezas = jQuery.grep(campana.piezas, function(value) {
+              return value._id != vm.pieza._id;
+            });
+            campana.$update();
+            vm.pieza.$remove($state.go('piezas.list'));
+        });
+
       }
     }
 
@@ -71,12 +81,13 @@
         return false;
       }
 
-      // TODO: move create/update logic to service
+      
       if (vm.pieza._id) {
         vm.pieza.$update(successCallback, errorCallback);
       } else {
         vm.pieza.latitud = dms2dec(vm.pieza.latitud);
         vm.pieza.longitud = dms2dec(vm.pieza.longitud);
+        vm.pieza.campana = id_campana;
         vm.pieza.$save(successCallback, errorCallback);
 
         // Se agrega la pieza a la campana elegida
