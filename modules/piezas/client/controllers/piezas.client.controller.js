@@ -31,16 +31,16 @@
 
       if ($window.confirm('Nombre de la campaña')) {
         var campana = CampanasService.get({
-          campanaId: vm.pieza.campana
+          campanaId: vm.pieza.idcampana
         }, function(){
-            campana.piezas = jQuery.grep(campana.piezas, function(value) {
+            campana.piezas = $.grep(campana.piezas, function(value) {
               return value._id != vm.pieza._id;
             });
-            campana.$update();
-            vm.pieza.$remove($state.go('piezas.list'));
+            campana.$update();   
         });
 
       }
+      vm.pieza.$remove($state.go('piezas.list'));
     }
 
     /**
@@ -87,7 +87,8 @@
       } else {
         vm.pieza.latitud = dms2dec(vm.pieza.latitud);
         vm.pieza.longitud = dms2dec(vm.pieza.longitud);
-        vm.pieza.campana = id_campana;
+        //vm.pieza.namecampana = vm.pieza.campana;
+        vm.pieza.idcampana = id_campana;
         vm.pieza.$save(successCallback, errorCallback);
 
         // Se agrega la pieza a la campana elegida
