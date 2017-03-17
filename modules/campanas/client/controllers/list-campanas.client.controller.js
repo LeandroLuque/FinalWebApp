@@ -84,7 +84,6 @@
             markers.push(marker);
 
           }
-          console.log(heatmapData);
 
           heatMap(map);
 
@@ -124,7 +123,6 @@
 
         if ((nombre != "") &&  (markers[i].visible != false)) {
           if (markers[i].title != nombre){
-            console.log("false");
             markers[i].setVisible(false);
           }else
             markers[i].setVisible(true);

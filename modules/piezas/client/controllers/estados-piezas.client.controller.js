@@ -19,8 +19,6 @@
 
     $scope.personal = PersonalsService.query();
 
-    console.log($scope.personal);
-
     var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
     
     $scope.uploadFile = function() {
@@ -40,9 +38,14 @@
               fileReader.onload = function(fileLoadedEvent) {
 
                 img_resul = fileLoadedEvent.target.result;
-           
+                var img = new Image();
+                img.src = img_resul
+                if (img.width > 500 || img.height > 300){
+                  alert("Imagen demasiado grande.");
+                  return false;
+                }
 
-                  vm.pieza.estados.push({
+                vm.pieza.estados.push({
                   responsable: $("#responsable").val(),
                   observaciones: $("#observaciones").val() ,
                   tipo: $("#tipo").val(),
@@ -51,8 +54,6 @@
                 })
 
                 vm.pieza.$update(successCallback, errorCallback);
-                 $("#observaciones").val("");
-                  $("#tipo").val("");
 
               };
 
@@ -72,6 +73,9 @@
     
 
       function successCallback(res) {
+        $("#observaciones").val("");
+        $("#tipo").val("");
+        $("#reponsable").val("");
         console.log("Nuevo estado generado");
       }
 
